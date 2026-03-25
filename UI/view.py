@@ -9,6 +9,7 @@ class View:
         self._page.theme_mode = ft.ThemeMode.LIGHT     # cambia il tema della finestra in light
         # self._page.update() invece di fare questo è meglio creare il metodo update_page(), così lo posso utilizzare
         # anche in controller, quindi la chiamo come nella riga qui sotto
+        self._txtInNomeP = None    # questo non sei obbligato a farlo in python, infatti per le altre tipo _txtInPrezzo non l'hai fatto
         self.update_page()
 
     def carica_interfaccia(self):
