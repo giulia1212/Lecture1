@@ -10,5 +10,4 @@ def main(page: ft.Page):
     v.set_controller(c)
     v.carica_interfaccia()
 
-
 ft.app(target=main)

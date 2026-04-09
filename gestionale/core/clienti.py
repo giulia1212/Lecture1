@@ -31,14 +31,7 @@ class Cliente:
         # "Cliente Fulvio Bianchi (Gold) - fulvio@google.com"
         return f"Cliente {self.nome} ({self.categoria}) - {self.mail}"
 
-@dataclass
-class ClienteRecord:
-    nome: str
-    mail: str
-    categoria: str
 
-    def __str__(self):
-        return f"{self.nome} -- {self.mail} ({self.categoria})"
 
 
 def _test_modulo():

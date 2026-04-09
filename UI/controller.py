@@ -6,6 +6,7 @@ class Controller:
     def __init__(self, v):
         self._view = v
         self._model = GestoreOrdini()
+
     def add_ordine(self, e):    # ricordati di mettere il SECONDO ARGOMENTO
 
         # Prodotto
@@ -38,11 +39,13 @@ class Controller:
             self._view._lvOut.controls.append(ft.Text("Attenzione, il campo nome cliente non può essere vuoto.", color = "red"))
             self._view.update_page()
             return
+
         email = self._view._txtInEmail.value
         if email == "":
             self._view._lvOut.controls.append(ft.Text("Attenzione, il campo email non può essere vuoto.", color = "red"))
             self._view.update_page()
             return
+
         categoria = self._view._txtInCategoria.value
         if categoria == "":
             self._view._lvOut.controls.append(ft.Text("Attenzione, il campo categoria non può essere vuoto.", color = "red"))
@@ -67,6 +70,10 @@ class Controller:
 
         self._view._lvOut.controls.append(ft.Text(ordine.riepilogo()))
 
+        self._view._lvOut.controls.append(ft.Text("\n"))
+
+        self._view.update_page()
+
     def gestisci_ordine(self, e):
         self._view._lvOut.controls.clear()
         res, ordine = self._model.processa_prossimo_ordine()
@@ -84,7 +91,7 @@ class Controller:
         self._view._lvOut.controls.clear()
         ordini = self._model.processa_tutti_ordini()
         if not ordini:
-            self._view._lvOut.controls.append(ft.Text("Nonci sono ordini in coda.", color="blue"))
+            self._view._lvOut.controls.append(ft.Text("Non ci sono ordini in coda.", color="blue"))
             self._view.update_page()
         else:
             self._view._lvOut.controls.append(ft.Text("\n"))
